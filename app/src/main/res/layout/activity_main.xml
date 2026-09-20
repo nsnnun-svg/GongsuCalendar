@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Top toolbar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/brand_green"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="4dp"
+            android:paddingEnd="8dp">
+
+            <ImageButton
+                android:id="@+id/btnMenu"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:src="@android:drawable/ic_menu_sort_by_size"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="8dp"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnListView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:src="@android:drawable/ic_menu_agenda"
+                app:tint="@color/white" />
+
+            <ImageButton
+                android:id="@+id/btnCalendarJump"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:src="@android:drawable/ic_menu_my_calendar"
+                app:tint="@color/white" />
+
+            <ImageButton
+                android:id="@+id/btnFolder"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:src="@android:drawable/ic_menu_upload"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <!-- Month navigation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="6dp">
+
+            <ImageButton
+                android:id="@+id/btnPrevMonth"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:src="@android:drawable/ic_media_previous" />
+
+            <TextView
+                android:id="@+id/tvMonthTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="2026년 5월" />
+
+            <ImageButton
+                android:id="@+id/btnNextMonth"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:src="@android:drawable/ic_media_next" />
+        </LinearLayout>
+
+        <!-- Weekday header -->
+        <LinearLayout
+            android:id="@+id/weekdayHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="7">
+
+            <TextView style="@style/WeekdayLabel" android:layout_weight="1" android:text="일" android:textColor="#E53935" />
+            <TextView style="@style/WeekdayLabel" android:layout_weight="1" android:text="월" />
+            <TextView style="@style/WeekdayLabel" android:layout_weight="1" android:text="화" />
+            <TextView style="@style/WeekdayLabel" android:layout_weight="1" android:text="수" />
+            <TextView style="@style/WeekdayLabel" android:layout_weight="1" android:text="목" />
+            <TextView style="@style/WeekdayLabel" android:layout_weight="1" android:text="금" android:textColor="#000000" android:textStyle="bold" />
+            <TextView style="@style/WeekdayLabel" android:layout_weight="1" android:text="토" android:textColor="#1E88E5" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCalendar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:overScrollMode="never" />
+
+        <!-- Bottom summary bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:background="#FAFAFA">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTotalLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#E65100"
+                    android:textStyle="bold"
+                    android:text="@string/total_label" />
+
+                <TextView
+                    android:id="@+id/tvTotalAmountSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/tvGongsuCountSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="#555555"
+                    android:text="공수 0건" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSettlement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#212121"
+                android:textColor="@color/white"
+                android:text="@string/settlement_tax" />
+
+            <Button
+                android:id="@+id/btnGroupFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/brand_green"
+                android:textColor="@color/white"
+                android:text="@string/group_filter" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Left navigation drawer -->
+    <ScrollView
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/drawerContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp" />
+    </ScrollView>
+
+</androidx.drawerlayout.widget.DrawerLayout>
