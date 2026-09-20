@@ -19,8 +19,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Android SDK 설치
-        uses: android-actions/setup-android@v3
+      - name: Android SDK 라이선스 동의 및 패키지 설치
+        run: |
+          yes | sdkmanager --licenses > /dev/null || true
+          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
       - name: Gradle 설치 (wrapper 없이 직접 사용)
         uses: gradle/actions/setup-gradle@v4
