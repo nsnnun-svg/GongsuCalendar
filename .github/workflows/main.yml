@@ -21,8 +21,10 @@ jobs:
 
       - name: Android SDK 라이선스 동의 및 패키지 설치
         run: |
-          yes | sdkmanager --licenses > /dev/null || true
-          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+          SDKMANAGER=$(find "$ANDROID_HOME" -name sdkmanager -type f 2>/dev/null | head -n 1)
+          echo "sdkmanager 경로: $SDKMANAGER"
+          yes | "$SDKMANAGER" --licenses > /dev/null || true
+          "$SDKMANAGER" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
       - name: Gradle 설치 (wrapper 없이 직접 사용)
         uses: gradle/actions/setup-gradle@v4
