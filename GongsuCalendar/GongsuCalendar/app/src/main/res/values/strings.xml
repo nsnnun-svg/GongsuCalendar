@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">일당월급계산서</string>
+
+    <string name="date">날짜</string>
+    <string name="delete">삭제</string>
+    <string name="holiday">휴</string>
+    <string name="gongsu">공수</string>
+    <string name="unit_price">단가</string>
+    <string name="total_amount">총액</string>
+    <string name="settled">정산</string>
+    <string name="no_group">그룹없음</string>
+    <string name="memo_hint">메모를 입력해주세요.</string>
+    <string name="close">닫기</string>
+    <string name="save">저장</string>
+
+    <string name="menu_data_management">데이터 관리</string>
+    <string name="menu_backup_restore">데이터 백업/복구</string>
+    <string name="menu_settings">환경설정</string>
+    <string name="menu_default_ui">기본값/UI 설정하기</string>
+    <string name="menu_tax_rate">세율조정하기</string>
+    <string name="menu_notification">알림설정</string>
+    <string name="menu_bulk">일괄변경</string>
+    <string name="menu_bulk_memo">메모 일괄변경</string>
+    <string name="menu_bulk_gongsu">공수 일괄변경</string>
+    <string name="menu_bulk_settled">정산여부 일괄변경</string>
+    <string name="menu_bulk_price">단가 일괄변경</string>
+    <string name="menu_etc">기타설정</string>
+    <string name="menu_app_update">앱 업데이트</string>
+    <string name="menu_rate">평가하기</string>
+    <string name="menu_contact">문의하기</string>
+    <string name="menu_share">공유하기</string>
+
+    <string name="settlement_tax">정산/세금</string>
+    <string name="group_filter">그룹필터</string>
+    <string name="total_label">합계</string>
+</resources>
