@@ -85,9 +85,7 @@ class MainActivity : AppCompatActivity() {
         tvTotalAmountSummary = findViewById(R.id.tvTotalAmountSummary)
         tvGongsuCountSummary = findViewById(R.id.tvGongsuCountSummary)
 
-        // 상단/하단 시스템 영역과 겹치지 않게 여백
-        UiHelper.applyInsets(findViewById(R.id.contentRoot))
-        UiHelper.applyInsets(findViewById(R.id.drawerScroll))
+        // 상단/하단 시스템 영역과 겹치지 않게 여백 (activity_main.xml 의 fitsSystemWindows 로 처리)
 
         adapter = CalendarAdapter { date -> openEntryDialog(date) }
         rvCalendar.layoutManager = GridLayoutManager(this, 7)

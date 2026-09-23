@@ -19,13 +19,15 @@ object UiHelper {
     fun dp(ctx: Context, v: Int): Int =
         (v * ctx.resources.displayMetrics.density + 0.5f).toInt()
 
-    /** 상태바/하단 버튼 영역과 겹치지 않도록 여백을 줌 */
+    /** 상태바/하단 버튼 영역과 겹치지 않도록 여백을 줌 (구형 방식 + 최신 방식 함께 적용) */
     fun applyInsets(view: View) {
+        view.fitsSystemWindows = true
         ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
             val b = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(b.left, b.top, b.right, b.bottom)
             insets
         }
+        ViewCompat.requestApplyInsets(view)
     }
 
     /** 다이얼로그 안 입력칸에 여백 주기 */
