@@ -133,7 +133,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openEntryDialog(date: LocalDate) {
-        EntryDialog(this, date) { loadMonth() }.show()
+        try {
+            EntryDialog(this, date) { loadMonth() }.show()
+        } catch (e: Exception) {
+            toast("입력창 오류: ${e.javaClass.simpleName} - ${e.message}")
+        }
     }
 
     private fun monthRange(): Pair<String, String> {
